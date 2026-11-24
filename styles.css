@@ -1,0 +1,134 @@
+:root {
+  color-scheme: light;
+  font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  color: #171717;
+  background: #fff;
+  --muted: #444;
+  --link: #3973b8;
+  --header-height: 90px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 20px); }
+body { margin: 0; }
+h1, h2, h3, p, blockquote { margin: 0; }
+a { color: var(--link); text-underline-offset: .2em; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+.skip-link { position: fixed; top: 8px; left: 8px; transform: translateY(-160%); padding: 8px 12px; background: white; z-index: 5; }
+.skip-link:focus { transform: none; }
+
+.site-header { position: sticky; top: 0; z-index: 2; background: white; }
+.header-inner {
+  max-width: 1373px;
+  min-height: var(--header-height);
+  margin: 0 auto;
+  padding: 10px 19px 0 20px;
+  background: url("assets/header-rule.svg") center bottom repeat-x;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 24px; color: #111; white-space: nowrap; }
+.brand small { display: block; color: #686868; font-size: 16px; }
+.brand-mark { width: 65px; height: 62px; display: grid; place-items: center; }
+.brand-mark img { max-width: 100%; height: auto; }
+nav { display: flex; gap: clamp(18px, 3.47vw, 50px); align-items: center; }
+nav a, h2 { display: flex; align-items: center; gap: 10px; }
+nav a { font-size: 24px; color: inherit; min-height: 44px; }
+.mark { display: block; flex: 0 0 auto; }
+
+.page-layout {
+  max-width: 1306px;
+  margin: 26px auto 52px;
+  display: grid;
+  grid-template-columns: minmax(235px, 286px) minmax(0, 1fr);
+  column-gap: 20px;
+}
+.sidebar { background: url("assets/sidebar-rule.svg") right top repeat-y; padding: 29px 29px 0 0; }
+.profile { position: sticky; top: calc(var(--header-height) + 35px); }
+.portrait { width: min(100%, 251px); aspect-ratio: 1; border-radius: 10px; overflow: hidden; margin-bottom: 23px; }
+.missing-art { background: #f4f5f6; border-radius: 8px; }
+.teaser.missing-art { aspect-ratio: 207 / 119; }
+.portrait img, .teaser img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.profile h1 { font-size: 30px; margin-bottom: 12px; color: #080808; }
+.profile p { color: var(--muted); line-height: 1.4; }
+.profile p + p { margin-top: 4px; }
+.profile-links { list-style: none; padding: 0; margin: 32px 0 36px; }
+.profile-links li { display: flex; align-items: center; gap: 7px; min-height: 27px; font-size: 18px; }
+.contact-icon { display: block; }
+.pending { color: var(--muted); }
+.news p { margin-top: 18px; font-size: 14px; }
+
+main { min-width: 0; padding: 0 20px 55px 0; }
+.intro { padding: 29px 0 0 40px; color: var(--muted); line-height: 1.38; }
+blockquote { position: relative; padding: 39px 24px 31px 3px; color: #111; font-size: 24px; font-weight: 650; }
+blockquote::before, blockquote::after { position: absolute; color: #999; font-size: 56px; line-height: 1; }
+blockquote::before { content: "“"; top: 0; left: -35px; }
+blockquote::after { content: "”"; bottom: 0; right: -15px; }
+blockquote sup { font-size: 12px; font-weight: 400; }
+.interests { margin-bottom: 3px; }
+h2 { font-size: 24px; color: #111; min-height: 34px; }
+#about { margin-top: 48px; }
+.section-body { margin: 22px 0 0 40px; line-height: 1.38; color: var(--muted); }
+#publications { margin-top: 72px; }
+#publications h2 { gap: 18px; }
+.paper-list { display: grid; gap: 26px; }
+.paper { min-height: 158px; display: grid; grid-template-columns: minmax(125px, 212px) minmax(0, 1fr); gap: clamp(16px, 2.2vw, 32px); align-items: center; }
+.teaser img { height: auto; }
+.venue { margin-bottom: 5px; }
+.paper h3 { color: #111; font-size: 18px; line-height: 1.36; }
+.authors { margin-top: 6px; color: #686868; font-size: 13px; }
+.paper-links { margin-top: 6px; }
+.future-section { margin-top: 72px; }
+#designs { margin-top: 100px; }
+
+@media (max-width: 1390px) {
+  .header-inner { margin-inline: 24px; }
+  .page-layout { margin-inline: clamp(24px, 4.68vw, 67px); }
+}
+@media (max-width: 1000px) {
+  nav { gap: 16px; }
+  nav a { font-size: 18px; gap: 6px; }
+  .page-layout { grid-template-columns: 220px minmax(0, 1fr); }
+  main { padding-right: 0; }
+  .paper { grid-template-columns: minmax(110px, 34%) minmax(0, 1fr); }
+}
+@media (max-width: 740px) {
+  :root { --header-height: 114px; }
+  .header-inner { display: grid; gap: 3px; justify-content: stretch; margin-inline: 16px; padding: 5px 0 0; }
+  .brand { font-size: 19px; }
+  .brand small { font-size: 13px; }
+  .brand-mark { width: 45px; height: 50px; }
+  nav { display: grid; grid-template-columns: repeat(4, max-content); justify-content: space-between; gap: 4px; }
+  nav a { font-size: clamp(12px, 3.4vw, 16px); }
+  nav .mark { display: none; }
+  .page-layout { display: block; margin: 24px 20px 0; }
+  .sidebar { background: none; border-bottom: 1px solid #ddd; padding: 0 0 24px; }
+  .profile { position: static; display: grid; grid-template-columns: minmax(80px, 112px) minmax(0, 1fr); align-items: center; gap: 15px; }
+  .profile h1 { font-size: 25px; margin-bottom: 5px; }
+  .profile p { font-size: 14px; }
+  .portrait, .profile-links { margin: 0; }
+  .profile-links, .news { grid-column: 1 / -1; }
+  .news p { margin-top: 3px; }
+  .intro { padding-left: 0; }
+  blockquote { padding-inline: 18px; font-size: 20px; }
+  blockquote::before { left: 0; }
+  blockquote::after { right: 0; }
+  .section-body { margin-left: 0; }
+  #about, #publications, .future-section, #designs { margin-top: 44px; }
+  .paper { align-items: start; gap: 12px; min-height: 0; }
+  .paper h3 { font-size: 16px; }
+}
+@media (max-width: 355px) {
+  .paper { grid-template-columns: 1fr; }
+  .teaser { max-width: 200px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+@media (max-height: 720px) and (min-width: 741px) {
+  .profile { position: static; }
+}
