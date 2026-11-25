@@ -17,7 +17,13 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+html {
+  /* Keep mobile browsers from enlarging text independently of the canvas. */
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
 body { zoom: min(1, calc(100vw / 1440px)); min-width: 1440px; margin: 0; }
 h1, h2, h3, p, blockquote { margin: 0; }
 a { color: var(--link); text-underline-offset: .2em; text-decoration: none; }
